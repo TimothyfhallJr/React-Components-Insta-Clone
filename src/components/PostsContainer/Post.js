@@ -1,37 +1,24 @@
-// You will add code in this file
-import React from "react";
-import CommentSection from "../CommentSection/CommentSectionContainer";
-import LikeSection from "./LikeSection";
-import PostHeader from "./PostHeader";
+//Complete the necessary code in this file
+// import useState
 
+import React, { useState } from "react";
+import Post from "./Post";
 import "./Posts.css";
 
-// pass props in this file to
-const Post = props => {
-  // set up state for the likes
+import dummyData from '../../dummy-data';
+
+const PostsPage = () => {
+  // set up state for your data
+  const [data] = useState(dummyData);
+  console.log('dummyData', data);
 
   return (
-    <div className="post-border">
-      <PostHeader
-        username={props.post.username}
-        thumbnailUrl={
-          props.post.thumbnailUrl
-        }
-      />
-      <div className="post-image-wrapper">
-        <img
-          alt="post thumbnail"
-          className="post-image"
-          src={props.post.imageUrl}
-        />
-      </div>
-      <LikeSection />
-      <CommentSection
-        postId={props.post.imageUrl}
-        comments={props.post.comments}
-      />
+    <div className="posts-container-wrapper">
+      {/* map through data here to return a Post and pass data as props to Post */}
+      {data.map(p => (
+        <Post key={p.id} post={p} />
+      ))}
     </div>
   );
 };
-
-export default Post;
+export default PostsPage;
