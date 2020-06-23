@@ -11,7 +11,7 @@ import PostsPage from "./components/PostsContainer/PostsPage";
 // import the PostsPage and SearchBar and add them to the App
 
 
-const App = (props) => {
+
 
 const App = () => {
   return (
@@ -20,6 +20,5 @@ const App = () => {
       <PostsPage />  
     </div>
   );
-};
 };
 export default App;
